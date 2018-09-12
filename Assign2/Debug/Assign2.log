@@ -1,0 +1,4 @@
+﻿  Cylinder.cpp
+c:\users\mebem\source\repos\assign2\assign2\cylinder.cpp(68): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\mebem\source\repos\assign2\assign2\cylinder.cpp(69): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Assign2.vcxproj -> C:\Users\mebem\source\repos\Assign2\Debug\Assign2.exe
