@@ -1,0 +1,6 @@
+*.suo
+*.ipch
+*.obj
+*.ilk
+*.exe
+*.pdb
