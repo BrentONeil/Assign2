@@ -4,3 +4,10 @@
 *.ilk
 *.exe
 *.pdb
+*.log
+*.tlog
+*.opendb
+*.lastbuildstate
+*.idb
+.vs\Assign2\v15\.suo
+
