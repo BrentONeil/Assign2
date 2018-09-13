@@ -30,46 +30,41 @@ RectangularPrism::RectangularPrism(double x_, double y_, double z_, double xl, d
 }
 
 void RectangularPrism::draw() {
-
-	x = Shape::x;
-	y = Shape::y;
-	z = Shape::z;
-
-
+	double yt = y + yl;
 	glPushMatrix();
 	positionInGL();
 	setColorInGL();
 	glBegin(GL_QUADS);
 
-	glVertex3d(x + 0.5*xl, y + yl, z + 0.5 * zl);
-	glVertex3d(x - 0.5*xl, y + yl, z + 0.5 * zl);	
-	glVertex3d(x - 0.5*xl, 0, z + 0.5 * zl);
-	glVertex3d(x + 0.5*xl, 0, z + 0.5 * zl);
+	glVertex3d( 0.5*xl, yl, 0.5 * zl);
+	glVertex3d(- 0.5*xl, yl, 0.5 * zl);	
+	glVertex3d(- 0.5*xl, 0, 0.5 * zl);
+	glVertex3d( 0.5*xl, 0, 0.5 * zl);
 	
-	glVertex3d(x + 0.5*xl, y + yl, z - 0.5 * zl);
-	glVertex3d(x + 0.5*xl, 0, z - 0.5 * zl);
-	glVertex3d(x - 0.5*xl, 0, z - 0.5 * zl);
-	glVertex3d(x - 0.5*xl, y + yl, z - 0.5 * zl);
+	glVertex3d(0.5*xl, yl, - 0.5 * zl);
+	glVertex3d( 0.5*xl, 0, - 0.5 * zl);
+	glVertex3d(- 0.5*xl, 0, - 0.5 * zl);
+	glVertex3d(- 0.5*xl, yl, - 0.5 * zl);
 
-	glVertex3d(x + 0.5*xl, y + yl, z + 0.5 * zl);
-	glVertex3d(x + 0.5*xl, 0, z + 0.5 * zl);
-	glVertex3d(x + 0.5*xl, 0, z - 0.5 * zl);
-	glVertex3d(x + 0.5*xl, y + yl, z - 0.5 * zl);
+	glVertex3d( 0.5*xl, yl, 0.5 * zl);
+	glVertex3d( 0.5*xl, 0, 0.5 * zl);
+	glVertex3d( 0.5*xl, 0, - 0.5 * zl);
+	glVertex3d( 0.5*xl, yl, - 0.5 * zl);
 
-	glVertex3d(x - 0.5*xl, y + yl, z + 0.5 * zl);
-	glVertex3d(x - 0.5*xl, 0, z + 0.5 * zl);
-	glVertex3d(x - 0.5*xl, 0, z - 0.5 * zl);
-	glVertex3d(x - 0.5*xl, y + yl, z - 0.5 * zl);
+	glVertex3d(- 0.5*xl, yl, 0.5 * zl);
+	glVertex3d(- 0.5*xl, 0, 0.5 * zl);
+	glVertex3d(- 0.5*xl, 0, - 0.5 * zl);
+	glVertex3d(- 0.5*xl, yl, - 0.5 * zl);
 
-	glVertex3d(x + 0.5*xl, y + yl, z + 0.5 * zl);
-	glVertex3d(x - 0.5*xl, y + yl, z + 0.5 * zl);
-	glVertex3d(x - 0.5*xl, y + yl, z - 0.5 * zl);
-	glVertex3d(x + 0.5*xl, y + yl, z - 0.5 * zl);
+	glVertex3d( 0.5*xl, yl, 0.5 * zl);
+	glVertex3d(- 0.5*xl, yl, 0.5 * zl);
+	glVertex3d(- 0.5*xl, yl, - 0.5 * zl);
+	glVertex3d( 0.5*xl, yl, - 0.5 * zl);
 
-	glVertex3d(x + 0.5*xl, 0, z + 0.5 * zl);
-	glVertex3d(x - 0.5*xl, 0, z + 0.5 * zl);
-	glVertex3d(x - 0.5*xl, 0, z - 0.5 * zl);
-	glVertex3d(x + 0.5*xl, 0, z - 0.5 * zl);
+	glVertex3d( 0.5*xl, 0.0f, 0.5 * zl);
+	glVertex3d(- 0.5*xl, 0.0f, 0.5 * zl);
+	glVertex3d(- 0.5*xl, 0.0f, - 0.5 * zl);
+	glVertex3d( 0.5*xl, 0.0f, - 0.5 * zl);
 
 	glEnd();
 	glPopMatrix();

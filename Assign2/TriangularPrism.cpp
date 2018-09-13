@@ -46,51 +46,51 @@ void TriangularPrism::draw() {
 	setColorInGL();
 	glBegin(GL_QUADS);
 	//Base
-	glVertex3d(x + 0.5 * al, 0, z + 0.5*depth);
-	glVertex3d(x + 0.5 * al, 0, z - 0.5*depth);
-	glVertex3d(x - 0.5 * al, 0, z - 0.5*depth);
-	glVertex3d(x - 0.5 * al, 0, z + 0.5*depth);
+	glVertex3d( 0.5 * al, 0,  0.5*depth);
+	glVertex3d( 0.5 * al, 0, - 0.5*depth);
+	glVertex3d(- 0.5 * al, 0, - 0.5*depth);
+	glVertex3d(- 0.5 * al, 0,  0.5*depth);
 	//Front
-	glVertex3d(x + 0.5 * al, 0, z + 0.5*depth);
-	glVertex3d(x + 0.5 * al, 0, z - 0.5*depth);
+	glVertex3d( 0.5 * al, 0,  0.5*depth);
+	glVertex3d( 0.5 * al, 0, - 0.5*depth);
 	glVertex3d(
-		x - 0.5 * al + bl*cos(theta * PI / 180), 
-		y + bl*sin(theta * PI / 180),
-		z - 0.5*depth);
+		- 0.5 * al + bl*cos(theta * PI / 180), 
+		 bl*sin(theta * PI / 180),
+		- 0.5*depth);
 	glVertex3d(
-		x - 0.5 * al + bl * cos(theta * PI / 180),
-		y + bl * sin(theta * PI / 180),
-		z + 0.5*depth);
+		- 0.5 * al + bl * cos(theta * PI / 180),
+		 bl * sin(theta * PI / 180),
+		 0.5*depth);
 	//
 	//
 	//Back
-	glVertex3d(x - 0.5 * al, 0, z - 0.5*depth);
-	glVertex3d(x - 0.5 * al, 0, z + 0.5*depth);
+	glVertex3d(- 0.5 * al, 0, - 0.5*depth);
+	glVertex3d(- 0.5 * al, 0,  0.5*depth);
 	glVertex3d(
-		x - 0.5 * al + bl * cos(theta * PI / 180),
-		y + bl * sin(theta * PI / 180),
-		z - 0.5*depth);
+		- 0.5 * al + bl * cos(theta * PI / 180),
+		 bl * sin(theta * PI / 180),
+		- 0.5*depth);
 	glVertex3d(
-		x - 0.5 * al + bl * cos(theta * PI / 180),
-		y + bl * sin(theta * PI / 180),
-		z + 0.5*depth);
+		- 0.5 * al + bl * cos(theta * PI / 180),
+		 bl * sin(theta * PI / 180),
+		 0.5*depth);
 
 	glEnd();
 	glBegin(GL_TRIANGLES);
 	//Front
-	glVertex3d(x + 0.5 * al, 0, z + 0.5*depth);
-	glVertex3d(x - 0.5 * al, 0, z + 0.5*depth);
+	glVertex3d( 0.5 * al, 0,  0.5*depth);
+	glVertex3d(- 0.5 * al, 0,  0.5*depth);
 	glVertex3d(
-		x - 0.5 * al + bl * cos(theta * PI / 180),
-		y + bl * sin(theta * PI / 180),
-		z + 0.5*depth);
+		- 0.5 * al + bl * cos(theta * PI / 180),
+		 bl * sin(theta * PI / 180),
+		 0.5*depth);
 	//Back
-	glVertex3d(x + 0.5 * al, 0, z - 0.5*depth);
-	glVertex3d(x - 0.5 * al, 0, z - 0.5*depth);
+	glVertex3d( 0.5 * al, 0, - 0.5*depth);
+	glVertex3d(- 0.5 * al, 0, - 0.5*depth);
 	glVertex3d(
-		x - 0.5 * al + bl * cos(theta * PI / 180),
-		y + bl * sin(theta * PI / 180),
-		z - 0.5*depth);
+		- 0.5 * al + bl * cos(theta * PI / 180),
+		 bl * sin(theta * PI / 180),
+		- 0.5*depth);
 
 	glEnd();
 	glPopMatrix();

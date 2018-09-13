@@ -68,7 +68,7 @@ ShapeInit Cylinder::params() {
 	si.params.cyl.radius = radius;
 	si.params.cyl.depth = depth;
 	si.params.cyl.isRolling = spin;
-	si.params.cyl.isSteering = steer; //TODO: Implement rolling wheels
+	si.params.cyl.isSteering = steer; 
 	return si;
 }
 

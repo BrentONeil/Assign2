@@ -43,35 +43,35 @@ void TrapezoidalPrism::draw() {
 	setColorInGL();
 	glBegin(GL_QUADS);
 	//base
-	glVertex3d(x + 0.5 * al, 0, z + 0.5*depth);
-	glVertex3d(x - 0.5 * al, 0, z + 0.5*depth);
-	glVertex3d(x - 0.5 * al, 0, z - 0.5*depth);
-	glVertex3d(x + 0.5 * al, 0, z - 0.5*depth);
+	glVertex3d( 0.5 * al, 0, z + 0.5*depth);
+	glVertex3d(- 0.5 * al, 0, - 0.5*depth);
+	glVertex3d(- 0.5 * al, 0, z - 0.5*depth);
+	glVertex3d( 0.5 * al, 0, z - 0.5*depth);
 	//top
-	glVertex3d(x - 0.5 * al + ao + bl, height, z + 0.5*depth);
-	glVertex3d(x - 0.5 * al + ao, height, z + 0.5*depth);
-	glVertex3d(x - 0.5 * al + ao, height, z - 0.5*depth);
-	glVertex3d(x - 0.5 * al + ao + bl, height, z - 0.5*depth);
+	glVertex3d(- 0.5 * al + ao + bl, height, - 0.5*depth);
+	glVertex3d(- 0.5 * al + ao, height, z + 0.5*depth);
+	glVertex3d(- 0.5 * al + ao, height, z - 0.5*depth);
+	glVertex3d(- 0.5 * al + ao + bl, height, z - 0.5*depth);
 	//x+ side
-	glVertex3d(x - 0.5 * al + ao + bl, height, z + 0.5*depth);
-	glVertex3d(x + 0.5 * al, 0, z + 0.5*depth);
-	glVertex3d(x + 0.5 * al, 0, z - 0.5*depth);
-	glVertex3d(x - 0.5 * al + ao + bl, height, z - 0.5*depth);
+	glVertex3d(- 0.5 * al + ao + bl, height, z + 0.5*depth);
+	glVertex3d( 0.5 * al, 0, z + 0.5*depth);
+	glVertex3d( 0.5 * al, 0, z - 0.5*depth);
+	glVertex3d(- 0.5 * al + ao + bl, height, z - 0.5*depth);
 	//x- side
-	glVertex3d(x - 0.5 * al + ao, height, z + 0.5*depth);
-	glVertex3d(x - 0.5 * al, 0, z + 0.5*depth);
-	glVertex3d(x - 0.5 * al, 0, z - 0.5*depth);
-	glVertex3d(x - 0.5 * al + ao, height, z - 0.5*depth);
+	glVertex3d(- 0.5 * al + ao, height, z + 0.5*depth);
+	glVertex3d(- 0.5 * al, 0, z + 0.5*depth);
+	glVertex3d(- 0.5 * al, 0, z - 0.5*depth);
+	glVertex3d(- 0.5 * al + ao, height, z - 0.5*depth);
 	//z+ side
-	glVertex3d(x - 0.5 * al + ao + bl, height, z + 0.5*depth);
-	glVertex3d(x + 0.5 * al, 0, z + 0.5*depth);
-	glVertex3d(x - 0.5 * al, 0, z + 0.5*depth);
-	glVertex3d(x - 0.5 * al + ao, height, z + 0.5*depth);
+	glVertex3d(- 0.5 * al + ao + bl, height, z + 0.5*depth);
+	glVertex3d( 0.5 * al, 0, z + 0.5*depth);
+	glVertex3d(- 0.5 * al, 0, z + 0.5*depth);
+	glVertex3d(- 0.5 * al + ao, height, z + 0.5*depth);
 	//z- side
-	glVertex3d(x - 0.5 * al + ao + bl, height, z - 0.5*depth);
-	glVertex3d(x + 0.5 * al, 0, z - 0.5*depth);
-	glVertex3d(x - 0.5 * al, 0, z - 0.5*depth);
-	glVertex3d(x - 0.5 * al + ao, height, z - 0.5*depth);
+	glVertex3d(- 0.5 * al + ao + bl, height, z - 0.5*depth);
+	glVertex3d( 0.5 * al, 0, z - 0.5*depth);
+	glVertex3d(- 0.5 * al, 0, z - 0.5*depth);
+	glVertex3d(- 0.5 * al + ao, height, z - 0.5*depth);
 
 	glEnd();
 	glPopMatrix();
