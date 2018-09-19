@@ -29,6 +29,7 @@
 #include "Camera.hpp"
 #include "Ground.hpp"
 #include "KeyManager.hpp"
+#include "XInput.h"
 
 #include "Shape.hpp"
 #include "Vehicle.hpp"
@@ -78,9 +79,14 @@ std::deque<GoalState> goals;
 std::map<int, Vehicle *> otherVehicles;
 
 int frameCounter = 0;
+bool xbox = false;
+XINPUT_STATE input;
 
 //int _tmain(int argc, _TCHAR* argv[]) {
 int main(int argc, char ** argv) {
+
+	XINPUT_CAPABILITIES XCap;
+	DWORD result;
 
 	const int WINDOW_WIDTH = 800;
 	const int WINDOW_HEIGHT = 600;
@@ -128,6 +134,11 @@ int main(int argc, char ** argv) {
 	g.x = 25;
 	g.z = 0;
 	goals.push_back(g);
+
+	result = XInputGetCapabilities(0, XINPUT_FLAG_GAMEPAD, &XCap);
+	if (result == ERROR_SUCCESS) {
+		xbox = true;
+	}
 
 
 	glutMainLoop();
@@ -276,21 +287,31 @@ void idle() {
 
 	speed = 0;
 	steering = 0;
+	if (xbox = false) {
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT)) {
+			steering = Vehicle::MAX_LEFT_STEERING_DEGS * -1;
+		}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT)) {
-		steering = Vehicle::MAX_LEFT_STEERING_DEGS * -1;   
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT)) {
+			steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -1;
+		}
+
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP)) {
+			speed = Vehicle::MAX_FORWARD_SPEED_MPS;
+		}
+
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN)) {
+			speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
+		}
 	}
-
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT)) {
-		steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -1;
-	}
-
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP)) {
-		speed = Vehicle::MAX_FORWARD_SPEED_MPS;
-	}
-
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN)) {
-		speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
+	else {
+		DWORD result = XInputGetState(0, &input);
+		if (result != ERROR_SUCCESS){
+			xbox = false;
+		}
+		steering = (double)input.Gamepad.sThumbLX / (double)SHRT_MAX * Vehicle::MAX_LEFT_STEERING_DEGS;
+		speed = (double)input.Gamepad.bRightTrigger / (double)UCHAR_MAX * Vehicle::MAX_FORWARD_SPEED_MPS;
+		speed += (double)input.Gamepad.bLeftTrigger / (double)UCHAR_MAX * Vehicle::MAX_BACKWARD_SPEED_MPS;
 	}
 
 	// attempt to do data communications every 4 frames if we've created a local vehicle
