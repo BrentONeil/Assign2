@@ -10,34 +10,30 @@
 
 
 Truck::Truck() : Vehicle(){
-	Cylinder * FrontWheel = new Cylinder(5,2,0,5,2);
-	FrontWheel->setWheel(this, true, true);
-	FrontWheel->setColor(0.5, 0.5, 0.5);
-	addShape(FrontWheel);
+	
+	Cylinder * FrontRightWheel = new Cylinder(1.1,0.4,1.1,0.1,0.4);
+	FrontRightWheel->setWheel(this, true, true);
+	FrontRightWheel->setColor(1.0, 0, 0);
+	addShape(FrontRightWheel);
 
-	Cylinder * BackWheel = new Cylinder(-5, 2, 0, 5, 2);
-	BackWheel->setWheel(this, false, true);
-	BackWheel->setColor(0, 1, 0);
-	addShape(BackWheel);
+	Cylinder * FrontLeftWheel = new Cylinder(1.1,0.4,-1.1,0.1,0.4);
+	FrontLeftWheel->setWheel(this, true, true);
+	FrontLeftWheel->setColor(1.0, 0, 0);
+	addShape(FrontLeftWheel);
 
-	RectangularPrism * BottomBody = new RectangularPrism(0.0, 3.0, 0.0, 3.0, 1.5, 1.0);
-	BottomBody-> setColor(1, 0, 0);
+	Cylinder * BackRightWheel = new Cylinder(-1.1,0.8,1.1,0.1,0.8);
+	BackRightWheel->setWheel(this, true, true);
+	BackRightWheel->setColor(0, 0, 1.0);
+	addShape(BackRightWheel);
+
+	Cylinder * BackLeftWheel = new Cylinder(-1.1, 0.8, -1.1, 0.1, 0.8);
+	BackLeftWheel->setWheel(this, true, true);
+	BackLeftWheel->setColor(0, 0, 1.0);
+	addShape(BackLeftWheel);
+
+	RectangularPrism * BottomBody = new RectangularPrism(0, 0.4, 0, 3, 1, 2);
+	BottomBody-> setColor(0, 0.6, 0);
 	addShape(BottomBody);
 	
-	
-	/*	Cylinder * FrontWheel = new Cylinder(1.1,2,0,5,2);
-	FrontWheel->setWheel(this, true, true);
-	FrontWheel->setColor(14, 14, 14);
-	addShape(FrontWheel);
-
-	Cylinder * BackWheel = new Cylinder(-5, 2, 0, 5, 2);
-	BackWheel->setWheel(this, true, true);
-	BackWheel->setColor(14, 14, 14);
-	addShape(BackWheel);
-
-	RectangularPrism * BottomBody = new RectangularPrism(0, 3, 0, 11, 0.1, 5);
-	BottomBody-> setColor(82, 0, 0);
-	addShape(BottomBody);
-	*/
 
 }
